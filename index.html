@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="options.css" class="css" />
+  </head>
+  <body>
+    <section class="tools">
+      <form id="form" class="options" onchange="onFormChange" >
+        <select name="fontFamily" id="fontFamily">
+          <option value="sans">sans pro</option>
+          <option value="monospace">Monospace</option>
+          <option value="sans-serif">sans serif</option>
+        </select>
+        <input type="number" min="3" max="24" placeholder="Font Size" value="16" name="fontSize"  />
+
+        <div>
+           <input type="checkbox" class="hidden-input" id="bold" name="bold">
+           <label class="material-icons  option-btn" for="bold"> format_bold </label>
+        </div>
+       <div>
+        <input type="checkbox" class="hidden-input" id="italic" name="italic">
+        <label class="material-icons  option-btn" for="italic"> format_italic </label>
+       
+       </div>
+
+       <div>
+        <input type="checkbox" class="hidden-input" id="underlined" name="underlined">
+        <label class="material-icons  option-btn " for="underlined" > format_underline </label>
+        
+        
+       </div>
+       <div>
+       
+        <input type="radio" class="hidden-input" id="left" name="textalign" value="left">
+
+        <label class="material-icons  option-btn" for="left" > format_align_left </label>
+
+        <input type="radio" class="hidden-input" id="right" name="textalign" value="right">
+
+        <label class="material-icons  option-btn" for="right"> format_align_right </label>
+
+        <input type="radio" class="hidden-input" id="center" name="textalign" value="center">
+        
+        <label class="material-icons  option-btn" for="center"> format_align_center </label>
+       
+       </div>
+        
+       <div>
+        <label class="material-icons  option-btn" for="text-color" > format_color_text </label>
+        <input type="color" class="hidden-input" id="textColor" value="#000000" name="textColor">
+       </div>
+       <div>
+        <label class="material-icons  option-btn" for="bg-color"> format_color_fill</span>
+        <input type="color" class="hidden-input" id="bgColor" value="#ffffff" name="bgColor">
+       </div>
+        
+       
+        
+      </form>
+      <div class="bottom-section">
+        <div class="active-cell">null</div>
+        <input type="text" class="expression" placeholder="fx" />
+      </div>
+    </section>
+    <section class="root-container">
+      <div class="header"></div>
+      <div class="body">
+        <div class="sno"></div>
+        <div class="main"></div>
+      </div>
+    </section>
+
+    <script src="options.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
