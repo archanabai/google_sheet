@@ -2,6 +2,11 @@ const cellNamePlaceHolder = document.querySelector(".active-cell");
 const form = document.querySelector("#form");
 const fontFamilyInput = document.querySelector("#fontFamily");
 const fontSizeInput = document.querySelector("#fontSize");
+const searchBox = document.getElementById("searchBox");
+const replaceBox = document.getElementById("replaceBox");
+const cell = document.querySelectorAll(".cell");
+
+
 let activeElement = null;
 
 const state = {}
@@ -20,7 +25,7 @@ const defaultPropoties = {
 
 function onCellFocus(event) {
    let elementId = event.target.id;
-   cellNamePlaceHolder.innerText = elementId;
+   cellNamePlaceHolder.value = elementId;
    activeElement = event.target;
 
    if (state[elementId]) {
@@ -40,7 +45,7 @@ function resetOptions(optionsState) {
    form.textalign.value = optionsState.textAlign;
    form.bold.checked = optionsState.isBold;
    form.italic.checked = optionsState.isItalic;
-   form.underlined.checked = optionsState.isUnderLine;
+   form.underline.checked = optionsState.isUnderLine;
    form.textColor.value = optionsState.color;
    form.bgColor.value = optionsState.backgroundColor;
 }
@@ -48,7 +53,6 @@ function resetOptions(optionsState) {
 
 function onFormChange() {
    if (!activeElement) {
-      alert("hello");
       form.reset();
       return;
    }
@@ -61,8 +65,42 @@ function onFormChange() {
       fontFamily: form.fontFamily.value,
       isBold: form.bold.checked,
       isItalic: form.italic.checked,
-      isUnderLine: form.underlined.checked,
+      isUnderLine: form.underline.checked,
       textAlign: form.textalign.value,
    }
-   console.log(currentState);
+   //below 
+  applyStylesToCell(currentState);
+
+  state[activeElement.id] = {...currentState,value:activeElement.value};
+}
+
+function applyStylesToCell(styleObject){
+    activeElement.style.fontSize =`${styleObject.fontSize}px`;
+    activeElement.style.fontFamily=styleObject.fontFamily;
+    activeElement.style.color = styleObject.textColor;
+    activeElement.style.backgroundColor=styleObject.backgroundColor;
+    activeElement.style.textAlign=styleObject.textAlign;
+
+    if(styleObject.isBold){
+      activeElement.style.fontWeight="bold";
+    }
+    if(styleObject.isItalic){
+      activeElement.style.fontStyle="italic";
+    }
+    if(styleObject.isUnderLine){
+      activeElement.style.textDecoration="underline";
+    }
+
+  
+}
+
+function replaceInnerText(){
+   console.log(cell);
+    cell.forEach((item)=>{
+      // if(item.innerText == searchBox.value){
+      //    item.innerText = replaceBox.value;
+
+      // }
+      console.log(item);
+    })
 }

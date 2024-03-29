@@ -13,11 +13,18 @@
   </head>
   <body>
     <section class="tools">
-      <form id="form" class="options" onchange="onFormChange" >
+      <form id="form" class="options" onchange="onFormChange()" >
+        <div>
+         <label for="searchBox"></label>
+         <input type="text" name="searchBox" id="searchBox" placeholder="Search" class="search_Optopn" >
+         <label for="replaceBox"></label>
+         <input type="text" name="replaceBox" id="replaceBox" placeholder="Replace" class="search_Optopn" >
+         <button type="button" class="search_Optopn "  onclick="replaceInnerText()">click</button>
+        </div>
         <select name="fontFamily" id="fontFamily">
-          <option value="sans">sans pro</option>
-          <option value="monospace">Monospace</option>
-          <option value="sans-serif">sans serif</option>
+          <option value="'Times New Roman', Times, serif">Times New Roman</option>
+          <option value="Arial, Helvetica, sans-serif">Arial</option>
+          <option value="'Courier New', Courier, monospace">Courier New</option>
         </select>
         <input type="number" min="3" max="24" placeholder="Font Size" value="16" name="fontSize"  />
 
@@ -32,8 +39,8 @@
        </div>
 
        <div>
-        <input type="checkbox" class="hidden-input" id="underlined" name="underlined">
-        <label class="material-icons  option-btn " for="underlined" > format_underline </label>
+        <input type="checkbox" class="hidden-input" id="underline" name="underline">
+        <label class="material-icons  option-btn " for="underline" > format_underline </label>
         
         
        </div>
@@ -61,7 +68,8 @@
         <label class="material-icons  option-btn" for="bg-color"> format_color_fill</span>
         <input type="color" class="hidden-input" id="bgColor" value="#ffffff" name="bgColor">
        </div>
-        
+        <button type="button" class="material-icons" onclick="exportDate()">cloud_upload</button>
+        <button type="button" class="material-icons" >cloud_download</button>
        
         
       </form>
@@ -77,7 +85,7 @@
         <div class="main"></div>
       </div>
     </section>
-
+    <script src="export_import.js"></script>
     <script src="options.js"></script>
     <script src="index.js"></script>
   </body>

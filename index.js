@@ -38,6 +38,7 @@ function createRow(rowNumber){
       cell.id = String.fromCharCode(64+i) + rowNumber ;
      // adding focus eventlistner;
       cell.addEventListener("focus" ,onCellFocus);
+      //add input eventlistner;
       cell.addEventListener("input" ,onFormChange);
     }
 
